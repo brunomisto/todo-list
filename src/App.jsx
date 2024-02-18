@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 function App() {
@@ -12,11 +13,16 @@ function App() {
     event.preventDefault();
 
     const newTask = {
-      id: tasks.length + 1,
+      id: uuidv4(),
       name: name,
     };
+
     setTasks(tasks.concat(newTask));
     setName("");
+  };
+
+  const handleDeleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -32,7 +38,10 @@ function App() {
       <h2>Tasks</h2>
       <ul>
         {tasks.map((task) => (
-          <li key={task.id}>{task.name}</li>
+          <li key={task.id}>
+            {task.name}{" "}
+            <button onClick={() => handleDeleteTask(task.id)}>delete</button>
+          </li>
         ))}
       </ul>
     </div>
