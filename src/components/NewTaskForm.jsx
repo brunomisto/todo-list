@@ -33,7 +33,7 @@ const NewTaskForm = ({ onNewTask }) => {
       <div>
         <label>
           Task name
-          <input value={name} onChange={handleNameChange} />
+          <input required value={name} onChange={handleNameChange} />
         </label>
       </div>
       <div>
