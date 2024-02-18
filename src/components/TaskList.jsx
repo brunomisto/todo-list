@@ -11,6 +11,7 @@ const TaskList = ({ tasks, onDelete }) => {
   const tasksToShow = tasks.filter((task) => task.priority.includes(priority));
   return (
     <div>
+      <h2>Tasks</h2>
       <label>
         Show by priority
         <select value={priority} onChange={handlePriorityChange}>

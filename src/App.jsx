@@ -30,7 +30,6 @@ const App = () => {
     <div>
       <h1>To do list</h1>
       <NewTaskForm onNewTask={handleNewTask} />
-      <h2>Tasks</h2>
       <TaskList tasks={tasks} onDelete={handleDeleteTask} />
     </div>
   );
