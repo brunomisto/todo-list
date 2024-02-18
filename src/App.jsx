@@ -2,11 +2,11 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
+  const [taskName, setTaskName] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
+  const handleTaskNameChange = (event) => {
+    setTaskName(event.target.value);
   };
 
   const handleNewTask = (event) => {
@@ -14,11 +14,11 @@ function App() {
 
     const newTask = {
       id: uuidv4(),
-      name: name,
+      name: taskName,
     };
 
     setTasks(tasks.concat(newTask));
-    setName("");
+    setTaskName("");
   };
 
   const handleDeleteTask = (id) => {
@@ -32,7 +32,7 @@ function App() {
         <h2>Add task</h2>
         <label>
           Task name
-          <input value={name} onChange={handleNameChange} />
+          <input value={taskName} onChange={handleTaskNameChange} />
         </label>
       </form>
       <h2>Tasks</h2>
