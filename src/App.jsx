@@ -1,7 +1,7 @@
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
-import TaskList from "./components/TaskList";
+import Tasks from "./components/Tasks";
 import NewTaskForm from "./components/NewTaskForm";
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
     <div>
       <h1>To do list</h1>
       <NewTaskForm onNewTask={handleNewTask} />
-      <TaskList tasks={tasks} onDelete={handleDeleteTask} />
+      <Tasks tasks={tasks} onDelete={handleDeleteTask} />
     </div>
   );
 };
