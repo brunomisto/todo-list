@@ -3,10 +3,26 @@ import { useState } from "react";
 
 function App() {
   const [taskName, setTaskName] = useState("");
-  const [tasks, setTasks] = useState([]);
+  const [taskPriority, setTaskPriority] = useState("low");
+  const [tasks, setTasks] = useState([
+    {
+      id: uuidv4(),
+      name: "wash the dishes",
+      priority: "low",
+    },
+    {
+      id: uuidv4(),
+      name: "code",
+      priority: "high",
+    },
+  ]);
 
   const handleTaskNameChange = (event) => {
     setTaskName(event.target.value);
+  };
+
+  const handleTaskPriorityChange = (event) => {
+    setTaskPriority(event.target.value);
   };
 
   const handleNewTask = (event) => {
@@ -15,6 +31,7 @@ function App() {
     const newTask = {
       id: uuidv4(),
       name: taskName,
+      priority: taskPriority,
     };
 
     setTasks(tasks.concat(newTask));
@@ -33,6 +50,14 @@ function App() {
         <label>
           Task name
           <input value={taskName} onChange={handleTaskNameChange} />
+        </label>
+        <label>
+          Priority
+          <select value={taskPriority} onChange={handleTaskPriorityChange}>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
         </label>
       </form>
       <h2>Tasks</h2>
