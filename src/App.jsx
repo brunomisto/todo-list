@@ -1,5 +1,8 @@
+import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import TaskList from "./components/TaskList";
+import NewTaskForm from "./components/NewTaskForm";
 
 function App() {
   const [taskName, setTaskName] = useState("");
@@ -45,30 +48,15 @@ function App() {
   return (
     <div>
       <h1>To do list</h1>
-      <form onSubmit={handleNewTask}>
-        <h2>Add task</h2>
-        <label>
-          Task name
-          <input value={taskName} onChange={handleTaskNameChange} />
-        </label>
-        <label>
-          Priority
-          <select value={taskPriority} onChange={handleTaskPriorityChange}>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-        </label>
-      </form>
+      <NewTaskForm
+        name={taskName}
+        priority={taskPriority}
+        onNameChange={handleTaskNameChange}
+        onNewTask={handleNewTask}
+        onPriorityChange={handleTaskPriorityChange}
+      />
       <h2>Tasks</h2>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
-            {task.name}{" "}
-            <button onClick={() => handleDeleteTask(task.id)}>delete</button>
-          </li>
-        ))}
-      </ul>
+      <TaskList tasks={tasks} onDelete={handleDeleteTask} />
     </div>
   );
 }
