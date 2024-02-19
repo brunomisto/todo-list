@@ -1,6 +1,6 @@
 import Task from "./Task";
 
-const TaskList = ({ tasks, onDelete, onCheck }) => {
+const TaskList = ({ tasks, onDelete, onCheck, onChange }) => {
   if (tasks.length === 0) {
     return <p>No tasks</p>;
   }
@@ -13,6 +13,7 @@ const TaskList = ({ tasks, onDelete, onCheck }) => {
           task={task}
           onDelete={() => onDelete(task.id)}
           onCheck={() => onCheck(task.id)}
+          onChange={onChange}
         />
       ))}
     </ul>

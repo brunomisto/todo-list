@@ -27,19 +27,19 @@ const App = () => {
     }
   }, []);
 
-  const handleNewTask = (task) => {
+  const handleNew = (task) => {
     const newTasks = tasks.concat(task);
     setTasks(tasks.concat(task));
     notes.saveAll(newTasks);
   };
 
-  const handleDeleteTask = (id) => {
+  const handleDelete = (id) => {
     const newTasks = tasks.filter((task) => task.id !== id);
     setTasks(newTasks);
     notes.saveAll(newTasks);
   };
 
-  const handleCheckTask = (id) => {
+  const handleCheck = (id) => {
     const newTasks = tasks.map((task) => {
       if (task.id === id) {
         return { ...task, checked: !task.checked };
@@ -51,14 +51,28 @@ const App = () => {
     notes.saveAll(newTasks);
   };
 
+  const handleChange = (id, priority) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, priority };
+      } else {
+        return task;
+      }
+    });
+
+    setTasks(newTasks);
+    notes.saveAll();
+  };
+
   return (
     <div>
       <h1>To do list</h1>
-      <NewTaskForm onNewTask={handleNewTask} />
+      <NewTaskForm onNewTask={handleNew} />
       <Tasks
         tasks={tasks}
-        onDelete={handleDeleteTask}
-        onCheck={handleCheckTask}
+        onDelete={handleDelete}
+        onCheck={handleCheck}
+        onChange={handleChange}
       />
     </div>
   );

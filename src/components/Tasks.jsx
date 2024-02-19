@@ -4,7 +4,7 @@ import PrioritySelect from "./PrioritySelect";
 import TaskList from "./TaskList";
 import SortSelect from "./SortSelect";
 
-const Tasks = ({ tasks, onDelete, onCheck }) => {
+const Tasks = ({ tasks, onDelete, onCheck, onChange }) => {
   const [priority, setPriority] = useState("");
   const [sort, setSort] = useState("");
 
@@ -38,7 +38,12 @@ const Tasks = ({ tasks, onDelete, onCheck }) => {
       <h2>Tasks</h2>
       <PrioritySelect priority={priority} onChange={handlePriorityChange} />
       <SortSelect sort={sort} onChange={handleSortChange} />
-      <TaskList tasks={tasksToShow} onDelete={onDelete} onCheck={onCheck} />
+      <TaskList
+        tasks={tasksToShow}
+        onDelete={onDelete}
+        onCheck={onCheck}
+        onChange={onChange}
+      />
     </div>
   );
 };
