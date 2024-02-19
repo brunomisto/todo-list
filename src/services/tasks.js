@@ -1,11 +1,11 @@
-const saveAll = (notes) => {
-  localStorage.setItem("notes", JSON.stringify(notes));
+const saveAll = (tasks) => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 const getAll = () => {
-  const notesString = localStorage.getItem("notes");
-  if (!notesString) return [];
-  return JSON.parse(notesString);
+  const tasksString = localStorage.getItem("tasks");
+  if (!tasksString) return [];
+  return JSON.parse(tasksString);
 };
 
 export default { saveAll, getAll };

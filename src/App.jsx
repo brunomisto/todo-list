@@ -61,7 +61,7 @@ const App = () => {
     });
 
     setTasks(newTasks);
-    tasksService.saveAll();
+    tasksService.saveAll(newTasks);
   };
 
   return (
