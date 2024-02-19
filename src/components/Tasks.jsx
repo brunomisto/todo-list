@@ -29,7 +29,7 @@ const Tasks = ({ tasks, onDelete, onCheck, onChange }) => {
         return a.name < b.name ? -1 : 1;
       }
       if (sort === "priority") {
-        return priorityValue[a.priority] - priorityValue[b.priority];
+        return priorityValue[b.priority] - priorityValue[a.priority];
       }
     });
 
