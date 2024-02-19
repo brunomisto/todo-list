@@ -39,11 +39,27 @@ const App = () => {
     notes.saveAll(newTasks);
   };
 
+  const handleCheckTask = (id) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, checked: !task.checked };
+      }
+      return task;
+    });
+
+    setTasks(newTasks);
+    notes.saveAll(newTasks);
+  };
+
   return (
     <div>
       <h1>To do list</h1>
       <NewTaskForm onNewTask={handleNewTask} />
-      <Tasks tasks={tasks} onDelete={handleDeleteTask} />
+      <Tasks
+        tasks={tasks}
+        onDelete={handleDeleteTask}
+        onCheck={handleCheckTask}
+      />
     </div>
   );
 };

@@ -1,7 +1,11 @@
-const Task = ({ task, onDelete }) => {
+const Task = ({ task, onDelete, onCheck }) => {
+  const classes = `task ${task.priority} ${task.checked ? "check" : "uncheck"}`;
   return (
-    <li className={task.priority}>
-      {task.name} <button onClick={onDelete}>delete</button>
+    <li>
+      <span className={classes} onClick={onCheck}>
+        {task.name}
+      </span>
+      <button onClick={onDelete}>delete</button>
     </li>
   );
 };
