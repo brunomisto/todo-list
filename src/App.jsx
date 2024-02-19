@@ -3,13 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import Tasks from "./components/Tasks";
 import NewTaskForm from "./components/NewTaskForm";
-import notes from "./services/notes";
+import tasksService from "./services/tasks";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    if (notes.getAll().length === 0) {
+    if (tasksService.getAll().length === 0) {
       setTasks([
         {
           id: uuidv4(),
@@ -23,20 +23,20 @@ const App = () => {
         },
       ]);
     } else {
-      setTasks(notes.getAll());
+      setTasks(tasksService.getAll());
     }
   }, []);
 
   const handleNew = (task) => {
     const newTasks = tasks.concat(task);
     setTasks(tasks.concat(task));
-    notes.saveAll(newTasks);
+    tasksService.saveAll(newTasks);
   };
 
   const handleDelete = (id) => {
     const newTasks = tasks.filter((task) => task.id !== id);
     setTasks(newTasks);
-    notes.saveAll(newTasks);
+    tasksService.saveAll(newTasks);
   };
 
   const handleCheck = (id) => {
@@ -48,7 +48,7 @@ const App = () => {
     });
 
     setTasks(newTasks);
-    notes.saveAll(newTasks);
+    tasksService.saveAll(newTasks);
   };
 
   const handleChange = (id, priority) => {
@@ -61,7 +61,7 @@ const App = () => {
     });
 
     setTasks(newTasks);
-    notes.saveAll();
+    tasksService.saveAll();
   };
 
   return (
