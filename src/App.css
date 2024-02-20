@@ -204,6 +204,10 @@ button:hover {
   align-items: center;
 }
 
+.github a:hover {
+  text-decoration: underline;
+}
+
 .github img {
   display: inline-block;
   height: 1.5rem;
