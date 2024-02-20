@@ -28,24 +28,20 @@ const NewTaskForm = ({ onNewTask }) => {
   };
 
   return (
-    <form onSubmit={handleNewTask}>
+    <form onSubmit={handleNewTask} id="new-task">
       <h2>Add task</h2>
-      <div>
-        <label>
-          Task name
-          <input required value={name} onChange={handleNameChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Priority
-          <select value={priority} onChange={handlePriorityChange}>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-        </label>
-      </div>
+      <label>
+        Task name
+        <input required value={name} onChange={handleNameChange} />
+      </label>
+      <label>
+        Priority
+        <select value={priority} onChange={handlePriorityChange}>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </label>
       <button type="submit">New task</button>
     </form>
   );

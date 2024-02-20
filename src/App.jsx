@@ -1,4 +1,5 @@
 import "./App.css";
+import GitHubLogo from "./assets/github-mark.svg";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import Tasks from "./components/Tasks";
@@ -65,15 +66,29 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>To do list</h1>
-      <NewTaskForm onNewTask={handleNew} />
-      <Tasks
-        tasks={tasks}
-        onDelete={handleDelete}
-        onCheck={handleCheck}
-        onChange={handleChange}
-      />
+    <div id="app">
+      <header>
+        <h1>To do list</h1>
+      </header>
+      <main>
+        <div id="content">
+          <NewTaskForm onNewTask={handleNew} />
+          <Tasks
+            tasks={tasks}
+            onDelete={handleDelete}
+            onCheck={handleCheck}
+            onChange={handleChange}
+          />
+        </div>
+      </main>
+      <footer>
+        <span className="github">
+          <a target="_blank" href="https://github.com/brunomisto/">
+            <img src={GitHubLogo} alt="" />
+            /brunomisto
+          </a>
+        </span>
+      </footer>
     </div>
   );
 };

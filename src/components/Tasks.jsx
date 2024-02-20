@@ -34,10 +34,12 @@ const Tasks = ({ tasks, onDelete, onCheck, onChange }) => {
     });
 
   return (
-    <div>
+    <div id="tasks">
       <h2>Tasks</h2>
-      <PrioritySelect priority={priority} onChange={handlePriorityChange} />
-      <SortSelect sort={sort} onChange={handleSortChange} />
+      <div className="controls">
+        <PrioritySelect priority={priority} onChange={handlePriorityChange} />
+        <SortSelect sort={sort} onChange={handleSortChange} />
+      </div>
       <TaskList
         tasks={tasksToShow}
         onDelete={onDelete}

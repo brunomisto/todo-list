@@ -1,7 +1,7 @@
 const PrioritySelect = ({ priority, onChange }) => {
   return (
     <label>
-      Show by priority
+      priority
       <select value={priority} onChange={onChange}>
         <option value="">All</option>
         <option value="high">High</option>
