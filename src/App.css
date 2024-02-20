@@ -43,7 +43,7 @@ main {
   justify-content: center;
   display: flex;
   padding: 0 4rem;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 #new-task {
@@ -78,7 +78,7 @@ select {
 }
 
 #tasks > .controls {
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -217,6 +217,7 @@ button:hover {
   #content {
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
 
   #new-task {
@@ -224,10 +225,6 @@ button:hover {
   }
 
   #tasks {
-    width: 100%;
-  }
-
-  #tasks > .controls {
     width: 100%;
   }
 
